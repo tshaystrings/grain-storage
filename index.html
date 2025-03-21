@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grain Quality Monitoring</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Firebase SDK -->
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
+</head>
+<body>
+    <header><img src="" alt=""></header>
+    <div class="header"><h1>Grain Quality Monitoring System</h1></div>
+    <div class="container">
+
+        <div class="card">
+            <div class="card_header">
+                <h2>CURRENT READINGS</h2>
+            </div>
+            <hr>
+            <p><strong>Moisture Level:</strong> <span id="moisture">Loading...</span></p>
+            <p><strong>Temperature:</strong> <span id="temperature">Loading...</span></p>
+            <p><strong>Humidity:</strong> <span id="humidity">Loading...</span></p>
+            <p><strong>Grain Status:</strong> <span id="status">TBD...</span></p>
+        </div>
+
+        <div class="filter-section">
+            <h2>SEARCH READINGS</h2>
+            <hr>
+            <label class="label" for="start-date">Start Date:</label>
+            <input type="datetime-local" id="start-date">
+            
+            <label class="label" for="end-date">End Date:</label>
+            <input type="datetime-local" id="end-date">
+            
+            <button onclick="filterHistory()">Filter</button>
+        </div>
+
+        <div class="history-container">
+            <h2>PREVIOUS DATA</h2>
+            <p>The last 10 readings are displayed by default.</p>
+            <hr>
+            <ul id="history-list"></ul>
+        </div>
+    </div>
+    <div class="footer">
+        <p>GRAIN STORAGE</p>
+        <p>2025</p>
+        <p>OAU ELECT</p>
+    </div>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
