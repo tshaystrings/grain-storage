@@ -28,10 +28,16 @@ onValue(testRef, (snapshot) => {
         document.getElementById("moisture").innerText = data._moisture + "%";
         document.getElementById("temperature").innerText = data._temperature + "°C";
         document.getElementById("humidity").innerText = data._humidity + "%";
-        document.getElementById("status").innerText = data._status;
+        if (data._fan_state == true){
+            data._fan_state = "Temperature high"
+        }
+        else{
+            data._fan_state = 'Grain okay.'
+        }
+        document.getElementById("status").innerText = data._fan_state;
 
         // Check if grain status is NOT OKAY and send a notification
-        if (data._status.toLowerCase() !== "okay") {
+        if (data._fan_state.toLowerCase() !== "temperature high") {
             sendNotification("Alert! Grain quality is not okay.");
         }
     }
