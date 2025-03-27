@@ -30,9 +30,11 @@ onValue(testRef, (snapshot) => {
         document.getElementById("humidity").innerText = data._humidity + "%";
         if (data._fan_state == true){
             data._fan_state = "Temperature high"
+            document.getElementById("status").style.color = 'red'
         }
         else{
             data._fan_state = 'Grain okay.'
+            document.getElementById("status").style.color = 'green'
         }
         document.getElementById("status").innerText = data._fan_state;
 
